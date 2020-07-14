@@ -1,0 +1,2317 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="hsboStock" Class="LINQHsbDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=hsboStock;User ID=sa" SettingsObjectName="HsboStk.Settings" SettingsPropertyName="hsboStockConnectionString2" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.buyerLocation" Member="buyerLocations">
+    <Type Name="buyerLocation">
+      <Column Name="trkBuyLoc" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="buyLoc" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="delL" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.buyerStore" Member="buyerStores">
+    <Type Name="buyerStore">
+      <Column Name="trkBStore" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="bStore" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkBuyLoc" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="delSL" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.client" Member="clients">
+    <Type Name="client">
+      <Column Name="trkClient" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="clientName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkBuyLoc" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="clientTel" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="clientInfo" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="delClient" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.crop" Member="crops">
+    <Type Name="crop">
+      <Column Name="trkCrop" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="cropName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="delCrop" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.unit" Member="units">
+    <Type Name="unit">
+      <Column Name="trkUnit" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="unitName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="delUn" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_BuyerStore" Member="V_BuyerStores">
+    <Type Name="V_BuyerStore">
+      <Column Name="trkBStore" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="bStore" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkBuyLoc" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="buyLoc" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="theLst" Type="System.String" DbType="NVarChar(103) NOT NULL" CanBeNull="false" />
+      <Column Name="delSL" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.car" Member="cars">
+    <Type Name="car">
+      <Column Name="trkCar" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="carNo" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="delC" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.driver" Member="drivers">
+    <Type Name="driver">
+      <Column Name="trkDriver" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="driverName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="driverTel" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="driverInfo" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="delD" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.arivalLoc" Member="arivalLocs">
+    <Type Name="arivalLoc">
+      <Column Name="trkArival" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="arivalName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="delAr" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_ArivalStore" Member="V_ArivalStores">
+    <Type Name="V_ArivalStore">
+      <Column Name="trkAStore" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="AStore" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkArival" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="delSa" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="arivalName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.test" Member="tests">
+    <Type Name="test">
+      <Column Name="cropName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="storeAmount" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="cropPrice" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkUnit" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.product" Member="products">
+    <Type Name="product">
+      <Column Name="trkProd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="prodName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkCrop" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="delPrd" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.peeler" Member="peelers">
+    <Type Name="peeler">
+      <Column Name="trkPeeler" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="peelerName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkArival" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="delPe" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.peelerStore" Member="peelerStores">
+    <Type Name="peelerStore">
+      <Column Name="trkPStore" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="pStore" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkPeeler" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="delSp" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_PeelerStore" Member="V_PeelerStores">
+    <Type Name="V_PeelerStore">
+      <Column Name="trkPStore" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="pStore" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkPeeler" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="delSp" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="peelerName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.prdStore" Member="prdStores">
+    <Type Name="prdStore">
+      <Column Name="trkPStr" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PrdStr" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="delPrdStr" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.arivalPrdStore" Member="arivalPrdStores">
+    <Type Name="arivalPrdStore">
+      <Column Name="trkAPrdStr" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="APrdStr" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkArival" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="delAPrd" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_Peeler" Member="V_Peelers">
+    <Type Name="V_Peeler">
+      <Column Name="trkPeeler" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="peelerName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="arivalName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="delPe" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="trkArival" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_Product" Member="V_Products">
+    <Type Name="V_Product">
+      <Column Name="trkProd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="prodName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="cropName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="delPrd" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="trkCrop" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.exportLoc" Member="exportLocs">
+    <Type Name="exportLoc">
+      <Column Name="trkExpLoc" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="expName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="delExp" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.exportStore" Member="exportStores">
+    <Type Name="exportStore">
+      <Column Name="trkExpStore" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="expStore" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkExpLoc" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="delSExp" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_ExportStore" Member="V_ExportStores">
+    <Type Name="V_ExportStore">
+      <Column Name="trkExpStore" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="expStore" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkExpLoc" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="delSExp" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="expName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.pay" Member="pays">
+    <Type Name="pay">
+      <Column Name="trkPay" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="payName" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_ShipmentDet" Member="V_ShipmentDets">
+    <Type Name="V_ShipmentDet">
+      <Column Name="trkShipDet" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkCrop" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="storeAmount" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkUnit" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="waight" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkDriver" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkCar" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkShip" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="delSD" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="unitName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="driverName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="carNo" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="cropName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_RepBuyCrp" Member="V_RepBuyCrps">
+    <Type Name="V_RepBuyCrp">
+      <Column Name="trkBuyClient" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="buyDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="trkBuyLoc" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="delBuy" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="trkCrop" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="storeAmount" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="cropPrice" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkClient" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="delBDet" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="cropName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="buyLoc" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="totalPrice" Type="System.Decimal" DbType="Decimal(37,0)" CanBeNull="true" />
+      <Column Name="trkUnit" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="unitName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="clientName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.cropUnit" Member="cropUnits">
+    <Type Name="cropUnit">
+      <Column Name="trk" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="trkCrop" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="trkUnit" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="delCU" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.prodUnit" Member="prodUnits">
+    <Type Name="prodUnit">
+      <Column Name="trk" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="trkProd" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="trkUnit" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="delPU" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.unitExch" Member="unitExches">
+    <Type Name="unitExch">
+      <Column Name="trkUntEx" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="trkFstUnt" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkSecUnt" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="exchgVal" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="delUnEx" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_unitExch" Member="V_unitExches">
+    <Type Name="V_unitExch">
+      <Column Name="trkUntEx" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkFstUnt" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkSecUnt" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="exchgVal" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="delUnEx" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="fstUnt" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="secUnt" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="exUn" Type="System.String" DbType="NVarChar(65)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.arivalStore" Member="arivalStores">
+    <Type Name="arivalStore">
+      <Column Name="trkAStore" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="AStore" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkArival" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="delSa" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_ShpDet" Member="V_ShpDets">
+    <Type Name="V_ShpDet">
+      <Column Name="trkShipDet" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkCrop" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="storeAmount" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="trkBuyLoc" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkBStore" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkShip" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_RptShpDet" Member="V_RptShpDets">
+    <Type Name="V_RptShpDet">
+      <Column Name="trkShipDet" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkCrop" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="storeAmount" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="trkUnit" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="weight" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="trkDriver" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkCar" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkShip" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="delSD" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="unitName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="cropName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="driverName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="carNo" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="untOne" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="amtOne" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="untTwo" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="amtTwo" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_RptArvDet" Member="V_RptArvDets">
+    <Type Name="V_RptArvDet">
+      <Column Name="trkArDet" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkCrop" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="storeAmount" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="trkUnit" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="weight" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="trkDriver" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkCar" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkAr" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="delAD" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="cropName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="unitName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="driverName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="carNo" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_RepAStrDet" Member="V_RepAStrDets">
+    <Type Name="V_RepAStrDet">
+      <Column Name="trkASDet" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkCrop" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="aStock" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="trkUnit" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="weight" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="trkASReq" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="delASDet" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="cropName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="unitName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_RepOutPrd" Member="V_RepOutPrds">
+    <Type Name="V_RepOutPrd">
+      <Column Name="trkPrdDet" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkCrop" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="amount" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="trkUnit" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="weight" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="trkOutPrd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="delPrd" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="unitName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="cropName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_RepToPrd" Member="V_RepToPrds">
+    <Type Name="V_RepToPrd">
+      <Column Name="trkToDet" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkProd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="amount" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="weight" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="trkUnit" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkToPrd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="delToDet" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="prodName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="unitName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_RepRecvDet" Member="V_RepRecvDets">
+    <Type Name="V_RepRecvDet">
+      <Column Name="trkRecvDet" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkProd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="amount" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkUnit" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="weight" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkRecv" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="delRecDet" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="prodName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="unitName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_RepExShpDet" Member="V_RepExShpDets">
+    <Type Name="V_RepExShpDet">
+      <Column Name="trkExpShipDet" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkProd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="storeAmount" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="trkUnit" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="weight" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="trkDriver" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkCar" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkExpShip" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="delExShDet" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="prodName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="driverName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="unitName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="carNo" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_RepArExDet" Member="V_RepArExDets">
+    <Type Name="V_RepArExDet">
+      <Column Name="trkArExDet" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkProd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="storeAmount" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="trkUnit" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="weight" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="trkDriver" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkCar" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkArExp" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="delArExDt" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="prodName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="unitName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="driverName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="carNo" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_RepExpStk" Member="V_RepExpStks">
+    <Type Name="V_RepExpStk">
+      <Column Name="trkExpStkDet" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkProd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="aStock" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="trkUnit" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="weight" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="trkExpStk" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="delExStkDet" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="unitName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="prodName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_RepGood" Member="V_RepGoods">
+    <Type Name="V_RepGood">
+      <Column Name="trkGoodDet" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkProd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="aStock" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="trkUnit" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="weight" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="shipDet" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="trkGood" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="delGoodDet" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="prodName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="unitName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_expDetOfShp" Member="V_expDetOfShps">
+    <Type Name="V_expDetOfShp">
+      <Column Name="trkExpShipDet" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkProd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="storeAmount" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="trkUnit" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="weight" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="trkDriver" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkCar" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkExpShip" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="delExShDet" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="prodName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="driverName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="carNo" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="unitName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_FinalStock" Member="V_FinalStocks">
+    <Type Name="V_FinalStock">
+      <Column Name="trkBuyLoc" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="buyLoc" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkBStore" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="bStore" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkCrop" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="cropName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="untOne" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="oneName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="totalOne" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="oShip" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="StkOne" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="untTwo" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="twoName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="totalTwo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="tShip" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="StkTwo" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_FinalOutStk" Member="V_FinalOutStks">
+    <Type Name="V_FinalOutStk">
+      <Column Name="trkArival" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="arivalName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkAStore" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="AStore" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkCrop" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="cropName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="untOne" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="oneName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="totalOne" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="oOut" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="StkOne" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="untTwo" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="twoName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="totalTwo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="tOut" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="StkTwo" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_ArvStk" Member="V_ArvStks">
+    <Type Name="V_ArvStk">
+      <Column Name="trkArival" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="arivalName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkAStore" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="AStore" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkCrop" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="cropName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="untOne" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="oneName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="totalOne" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="oOut" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="StkOne" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="untTwo" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="twoName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="totalTwo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="tOut" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="StkTwo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="oneUnt" Type="System.String" DbType="NVarChar(65)" CanBeNull="true" />
+      <Column Name="twoUnt" Type="System.String" DbType="NVarChar(65)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_BuyStk" Member="V_BuyStks">
+    <Type Name="V_BuyStk">
+      <Column Name="trkBuyLoc" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="buyLoc" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkBStore" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="bStore" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkCrop" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="cropName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="untOne" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="oneName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="totalOne" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="oShip" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="StkOne" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="untTwo" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="twoName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="totalTwo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="tShip" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="StkTwo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="oneUnt" Type="System.String" DbType="NVarChar(65)" CanBeNull="true" />
+      <Column Name="twoUnt" Type="System.String" DbType="NVarChar(65)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_FstExpShipStk" Member="V_FstExpShipStks">
+    <Type Name="V_FstExpShipStk">
+      <Column Name="trkArival" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkAPrdStr" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkProd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="untOne" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="oneName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="totalOne" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="oOut" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="untTwo" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="twoName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="totalTwo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="tOut" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_PrdStk" Member="V_PrdStks">
+    <Type Name="V_PrdStk">
+      <Column Name="trkArival" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="arivalName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkAPrdStr" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="APrdStr" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkProd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="prodName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="untOne" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="oneName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="totalOne" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="oOut" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="StkOne" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="untTwo" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="twoName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="totalTwo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="tOut" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="StkTwo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="oneUnt" Type="System.String" DbType="NVarChar(65)" CanBeNull="true" />
+      <Column Name="twoUnt" Type="System.String" DbType="NVarChar(65)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.headImg" Member="headImgs">
+    <Type Name="headImg">
+      <Column Name="trkUpld" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="imgExt" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="actv" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.waterImg" Member="waterImgs">
+    <Type Name="waterImg">
+      <Column Name="trkWtr" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="imgExt" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="actv" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_FinalToStk" Member="V_FinalToStks">
+    <Type Name="V_FinalToStk">
+      <Column Name="trkArival" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="arivalName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkPeeler" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="peelerName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkCrop" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="cropName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="untOne" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="oneName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="totalOne" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="oOut" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="StkOne" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="untTwo" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="twoName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="totalTwo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="tOut" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="StkTwo" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_InPeeler" Member="V_InPeelers">
+    <Type Name="V_InPeeler">
+      <Column Name="trkArival" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="arivalName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkPeeler" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="peelerName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkCrop" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="cropName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="untOne" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="oneName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="totalOne" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="oOut" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="StkOne" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="untTwo" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="twoName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="totalTwo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="tOut" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="StkTwo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="oneUnt" Type="System.String" DbType="NVarChar(65)" CanBeNull="true" />
+      <Column Name="twoUnt" Type="System.String" DbType="NVarChar(65)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_ClientArLoc" Member="V_ClientArLocs">
+    <Type Name="V_ClientArLoc">
+      <Column Name="trkClntAr" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="clntName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkArival" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="clntTel" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="clntInfo" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="delClnt" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="arivalName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.clientAr" Member="clientArs">
+    <Type Name="clientAr">
+      <Column Name="trkClntAr" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="clntName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkArival" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="clntTel" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="clntInfo" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="delClnt" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_ArivalPrdStore" Member="V_ArivalPrdStores">
+    <Type Name="V_ArivalPrdStore">
+      <Column Name="trkAPrdStr" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="APrdStr" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkArival" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="delAPrd" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="arivalName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_PrdExp" Member="V_PrdExps">
+    <Type Name="V_PrdExp">
+      <Column Name="trkToPrd" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="trkProd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_PrdSal" Member="V_PrdSals">
+    <Type Name="V_PrdSal">
+      <Column Name="trkToPrd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkProd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_StkGood" Member="V_StkGoods">
+    <Type Name="V_StkGood">
+      <Column Name="trkExpLok" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="expName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkExpStore" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="expStore" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkProd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="prodName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="untOne" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="oneName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="totalOne" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="oGood" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="StkOne" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="untTwo" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="twoName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="totalTwo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="tGood" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="StkTwo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="oneUnt" Type="System.String" DbType="NVarChar(65)" CanBeNull="true" />
+      <Column Name="twoUnt" Type="System.String" DbType="NVarChar(65)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_ClientLoc" Member="V_ClientLocs">
+    <Type Name="V_ClientLoc">
+      <Column Name="trkClient" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="clientName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkBuyLoc" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="clientTel" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="clientInfo" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="delClient" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="buyLoc" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_cropUnit" Member="V_cropUnits">
+    <Type Name="V_cropUnit">
+      <Column Name="trkCrop" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="cropName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkUnit" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="unitName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="delCrop" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="delCU" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="delUn" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="trk" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_prdUnit" Member="V_prdUnits">
+    <Type Name="V_prdUnit">
+      <Column Name="trkProd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="prodName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="cropName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="delPrd" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="trkUnit" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="unitName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="delPU" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="delUn" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="trkCrop" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_ExpDShp" Member="V_ExpDShps">
+    <Type Name="V_ExpDShp">
+      <Column Name="trkExpShipDet" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkProd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="storeAmount" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="trkExpShip" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkArival" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkAPrdStr" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="theFlag" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="expShipDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="delExpShip" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_ClntCrpArv" Member="V_ClntCrpArvs">
+    <Type Name="V_ClntCrpArv">
+      <Column Name="trkClntCrp" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="clntCrpName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkArival" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="clntCrpTel" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="clntCrpInfo" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="arivalName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.clientCrp" Member="clientCrps">
+    <Type Name="clientCrp">
+      <Column Name="trkClntCrp" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="clntCrpName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkArival" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="clntCrpTel" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="clntCrpInfo" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="delClntCrp" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.processBuy" Member="processBuys">
+    <Type Name="processBuy">
+      <Column Name="trkPrs" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="prsName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.processArv" Member="processArvs">
+    <Type Name="processArv">
+      <Column Name="trkPrs" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="prsName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.processRcv" Member="processRcvs">
+    <Type Name="processRcv">
+      <Column Name="trkPrs" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="prsName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.processExp" Member="processExps">
+    <Type Name="processExp">
+      <Column Name="trkPrs" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="prsName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_ExpShp" Member="V_ExpShps">
+    <Type Name="V_ExpShp">
+      <Column Name="trkExpShip" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="expShipDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="trkArival" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkAPrdStr" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="trkPeeler" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="trkPStore" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="trkToPrd" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="trkExpLoc" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="delExpShip" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="arivalName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="APrdStr" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="expName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="expShpInf" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_ExpShpPlr" Member="V_ExpShpPlrs">
+    <Type Name="V_ExpShpPlr">
+      <Column Name="trkExpShip" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="expShipDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="trkPeeler" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="trkToPrd" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="delExpShip" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="expName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.buy" Member="buys">
+    <Type Name="buy">
+      <Column Name="trkBuyClient" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="buyDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="trkBuyLoc" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkBStore" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="buyInfo" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="trkPrs" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="delBuy" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.buyDetail" Member="buyDetails">
+    <Type Name="buyDetail">
+      <Column Name="trkBuyDet" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="trkBuyClient" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkCrop" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="storeAmount" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="cropPrice" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="trkUnit" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="weight" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="trkClient" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="untOne" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="amtOne" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="untTwo" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="amtTwo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="delBDet" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_buy" Member="V_buys">
+    <Type Name="V_buy">
+      <Column Name="trkBuyClient" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="buyDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="trkBuyLoc" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkBStore" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="delBuy" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="buyLoc" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="bStore" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="buyInfo" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="trkPrs" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="prsName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_buyDetail" Member="V_buyDetails">
+    <Type Name="V_buyDetail">
+      <Column Name="trkBuyDet" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkBuyClient" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkCrop" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="storeAmount" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="cropPrice" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="trkClient" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="delBDet" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="clientName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="cropName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="unitName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkUnit" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="weight" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="untOne" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="amtOne" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="amtTwo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="buyDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="trkBuyLoc" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkBStore" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="buyLoc" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="bStore" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="oneName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="twoName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkPrs" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="prsName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="buyInfo" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.shipment" Member="shipments">
+    <Type Name="shipment">
+      <Column Name="trkShip" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="shipDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="trkBuyLoc" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkBStore" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkArival" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="shpInfo" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="delShip" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_Ship" Member="V_Ships">
+    <Type Name="V_Ship">
+      <Column Name="trkShip" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="shipDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="trkBuyLoc" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkBStore" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkArival" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="delShip" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="buyLoc" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="bStore" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="arivalName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="shpInfo" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.arrive" Member="arrives">
+    <Type Name="arrive">
+      <Column Name="trkAr" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="arDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="trkBuyLoc" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkArival" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="delAr" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="arInfo" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_Arrive" Member="V_Arrives">
+    <Type Name="V_Arrive">
+      <Column Name="trkAr" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="arDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="trkBuyLoc" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkArival" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="delAr" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="buyLoc" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="arivalName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="arInfo" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.aStoreReq" Member="aStoreReqs">
+    <Type Name="aStoreReq">
+      <Column Name="trkASReq" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SArDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="trkArival" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkAStore" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="aStrDet" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="isLocal" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="trkClntCrp" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="trkPrs" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="delAS" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.aStoreDet" Member="aStoreDets">
+    <Type Name="aStoreDet">
+      <Column Name="trkASDet" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="trkCrop" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="aStock" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="trkUnit" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="weight" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="trkASReq" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="untOne" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="amtOne" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="untTwo" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="amtTwo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="delASDet" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_aStoreReq" Member="V_aStoreReqs">
+    <Type Name="V_aStoreReq">
+      <Column Name="trkASReq" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="SArDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="trkArival" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkAStore" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="delAS" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="arivalName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AStore" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="aStrDet" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="isLocal" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="trkClntCrp" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="clntCrpName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="trkPrs" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="prsName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_ArvStr" Member="V_ArvStrs">
+    <Type Name="V_ArvStr">
+      <Column Name="trkASDet" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkCrop" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="aStock" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="trkUnit" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkASReq" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="SArDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="trkArival" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkAStore" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="isLocal" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="trkClntCrp" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="weight" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="cropName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="untOne" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="oneName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="amtOne" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="untTwo" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="twoName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="amtTwo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="clntName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="arivalName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AStore" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="unitName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkPrs" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="clntCrpName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.outPrd" Member="outPrds">
+    <Type Name="outPrd">
+      <Column Name="trkOutPrd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="oPrdDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="trkArival" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkAStore" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkPeeler" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="outInfo" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="isLocal" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="trkClntCrp" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="delOPrd" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.outPrdDet" Member="outPrdDets">
+    <Type Name="outPrdDet">
+      <Column Name="trkPrdDet" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="trkCrop" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="amount" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="trkUnit" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="weight" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="trkOutPrd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="untOne" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="amtOne" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="untTwo" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="amtTwo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="delPrd" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_OutPrd" Member="V_OutPrds">
+    <Type Name="V_OutPrd">
+      <Column Name="trkOutPrd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="oPrdDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="trkArival" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkAStore" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkPeeler" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="delOPrd" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="arivalName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AStore" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="peelerName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="outInfo" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="isLocal" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="trkClntCrp" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="clntCrpName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.toPrd" Member="toPrds">
+    <Type Name="toPrd">
+      <Column Name="trkToPrd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="toPrdDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="trkArival" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkPeeler" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkCrop" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="cropAmt" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="trashAmt" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="cropUnit" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="toInfo" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="crpUntOne" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="crpAmtOne" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="crpUntTwo" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="crpAmtTwo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="isLocal" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="trkClntCrp" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="delToPrd" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.toPrdDet" Member="toPrdDets">
+    <Type Name="toPrdDet">
+      <Column Name="trkToDet" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="trkProd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="amount" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="weight" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="trkUnit" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkToPrd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="untOne" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="amtOne" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="untTwo" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="amtTwo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="delToDet" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_toPrdDet" Member="V_toPrdDets">
+    <Type Name="V_toPrdDet">
+      <Column Name="trkToDet" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkProd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="amount" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="trkUnit" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkToPrd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="delToDet" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="prodName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="unitName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="toPrdDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="weight" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="untOne" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="oneName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="amtOne" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="untTwo" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="twoName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="amtTwo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="isLocal" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="trkClntCrp" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="trkArival" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="arivalName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkPeeler" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="peelerName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="clntCrpName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.saleDet" Member="saleDets">
+    <Type Name="saleDet">
+      <Column Name="trkSaleDet" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="trkSale" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkProd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Amount" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="trkUnit" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="price" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Weight" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="untOne" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="amtOne" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="untTwo" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="amtTwo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="delSaleDet" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.receive" Member="receives">
+    <Type Name="receive">
+      <Column Name="trkRecv" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="trkArival" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkPeeler" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="recvDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="trkAPrdStr" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="isLocal" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="trkClntCrp" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="trkToPrd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkPrs" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="recvInf" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="delRecv" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.receiveDet" Member="receiveDets">
+    <Type Name="receiveDet">
+      <Column Name="trkRecvDet" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="trkProd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="amount" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="trkUnit" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="weight" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="trkRecv" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="untOne" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="amtOne" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="untTwo" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="amtTwo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="delRecDet" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_Receive" Member="V_Receives">
+    <Type Name="V_Receive">
+      <Column Name="trkRecv" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkArival" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="recvDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="trkAPrdStr" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="delRecv" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="arivalName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="APrdStr" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="recvInf" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="trkPeeler" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="peelerName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="isLocal" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="trkClntCrp" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="clntCrpName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="trkToPrd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkPrs" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="prsName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_RecvDet" Member="V_RecvDets">
+    <Type Name="V_RecvDet">
+      <Column Name="trkRecvDet" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkProd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="amount" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="trkArival" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkPeeler" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkRecv" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="recvDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="trkUnit" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="isLocal" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="trkClntCrp" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="prodName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="unitName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="weight" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="clntCrpName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="arivalName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="trkAPrdStr" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="APrdStr" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="untOne" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="oneName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="amtOne" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="untTwo" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="twoName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="amtTwo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="trkToPrd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.expShip" Member="expShips">
+    <Type Name="expShip">
+      <Column Name="trkExpShip" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="expShipDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="trkArival" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkAPrdStr" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="trkPeeler" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="trkPStore" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="trkToPrd" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="trkExpLoc" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="expShpInf" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="delExpShip" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_expShip" Member="V_expShips">
+    <Type Name="V_expShip">
+      <Column Name="trkExpShip" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="expShipDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="trkArival" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkAPrdStr" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="trkPeeler" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="trkPStore" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="trkToPrd" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="trkExpLoc" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="delExpShip" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="arivalName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="peelerName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="expName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="expShpInf" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="APrdStr" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.receiveClnt" Member="receiveClnts">
+    <Type Name="receiveClnt">
+      <Column Name="trkClntRecv" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="trkArival" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkPeeler" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="ClntRecvDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="trkAPrdStr" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkClntCrp" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="trkToPrd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="ClntRecvInf" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="delClntRecv" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.recvClntDet" Member="recvClntDets">
+    <Type Name="recvClntDet">
+      <Column Name="trkRecvClntDet" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="trkProd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="amount" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="trkUnit" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="weight" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="trkClntRecv" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="untOne" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="amtOne" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="untTwo" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="amtTwo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="delRecDet" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_RecvClnt" Member="V_RecvClnts">
+    <Type Name="V_RecvClnt">
+      <Column Name="trkClntRecv" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkArival" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="arivalName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkPeeler" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="peelerName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ClntRecvDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="trkAPrdStr" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="APrdStr" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="trkClntCrp" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="clntCrpName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkToPrd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="ClntRecvInf" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="delClntRecv" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_RecvClntDet" Member="V_RecvClntDets">
+    <Type Name="V_RecvClntDet">
+      <Column Name="trkClntRecv" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkArival" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="arivalName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkPeeler" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="peelerName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ClntRecvDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="trkAPrdStr" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkClntCrp" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="APrdStr" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="trkToPrd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="ClntRecvInf" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="trkRecvClntDet" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkProd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="prodName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="amount" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="trkUnit" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="unitName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="weight" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="untOne" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="oneName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="amtOne" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="untTwo" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="twoName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="amtTwo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="clntCrpName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.arriveExp" Member="arriveExps">
+    <Type Name="arriveExp">
+      <Column Name="trkArExp" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="arExpDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="trkExpLoc" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkArival" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="arvExpInf" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="delArExp" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_arriveExp" Member="V_arriveExps">
+    <Type Name="V_arriveExp">
+      <Column Name="trkArExp" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="arExpDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="trkExpLoc" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkArival" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="delArExp" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="arivalName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="expName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="arvExpInf" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.expStock" Member="expStocks">
+    <Type Name="expStock">
+      <Column Name="trkExpStk" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="exStkDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="trkExpLok" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkExpStore" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="expStkInf" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="trkPrs" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="delExpStk" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.expStockDet" Member="expStockDets">
+    <Type Name="expStockDet">
+      <Column Name="trkExpStkDet" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="trkProd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="aStock" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="trkUnit" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="weight" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="trkExpStk" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="untOne" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="amtOne" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="untTwo" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="amtTwo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="delExStkDet" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_expStock" Member="V_expStocks">
+    <Type Name="V_expStock">
+      <Column Name="trkExpStk" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="exStkDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="trkExpLok" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkExpStore" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="delExpStk" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="expName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="expStore" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="expStkInf" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="trkPrs" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="prsName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_ExpStkDet" Member="V_ExpStkDets">
+    <Type Name="V_ExpStkDet">
+      <Column Name="trkExpStkDet" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkProd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="aStock" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="trkUnit" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkExpStk" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="exStkDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="trkExpLok" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="prodName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="weight" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="unitName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="untOne" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="oneName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="amtOne" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="untTwo" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="twoName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="amtTwo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="expName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkExpStore" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="expStore" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkPrs" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.shipDetail" Member="shipDetails">
+    <Type Name="shipDetail">
+      <Column Name="trkShipDet" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="trkCrop" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="storeAmount" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="trkUnit" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="weight" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Driver" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Car" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkShip" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="untOne" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="amtOne" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="untTwo" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="amtTwo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="delSD" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_shipDetail" Member="V_shipDetails">
+    <Type Name="V_shipDetail">
+      <Column Name="trkShip" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="shipDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="trkBuyLoc" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkBStore" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkCrop" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="delShip" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="delSD" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="trkShipDet" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="storeAmount" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="trkUnit" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="unitName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="weight" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="untOne" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="amtOne" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="oneName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="untTwo" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="amtTwo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="twoName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="cropName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Driver" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Car" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.arriveDetail" Member="arriveDetails">
+    <Type Name="arriveDetail">
+      <Column Name="trkArDet" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="trkCrop" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="storeAmount" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="trkUnit" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="weight" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Driver" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Car" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkAr" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="untOne" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="amtOne" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="untTwo" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="amtTwo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="delAD" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_arriveDet" Member="V_arriveDets">
+    <Type Name="V_arriveDet">
+      <Column Name="trkAr" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="arDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="trkBuyLoc" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkArival" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="arivalName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkArDet" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkCrop" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="cropName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="storeAmount" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="trkUnit" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="unitName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="weight" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="untOne" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="oneName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="amtOne" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="untTwo" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="twoName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="amtTwo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Driver" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Car" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_expShipDet" Member="V_expShipDets">
+    <Type Name="V_expShipDet">
+      <Column Name="trkExpShipDet" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkProd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="storeAmount" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="trkArival" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkAPrdStr" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="trkExpShip" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkUnit" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="unitName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="weight" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="untOne" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="oneName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="amtOne" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="untTwo" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="twoName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="amtTwo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="prodName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="expShipDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="arivalName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="APrdStr" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="trkPeeler" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="peelerName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="trkExpLoc" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="expName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Driver" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Car" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.expShipDet" Member="expShipDets">
+    <Type Name="expShipDet">
+      <Column Name="trkExpShipDet" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="trkProd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="storeAmount" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="trkUnit" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="weight" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Driver" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Car" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkExpShip" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="untOne" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="amtOne" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="untTwo" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="amtTwo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="delExShDet" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.arriveExpDet" Member="arriveExpDets">
+    <Type Name="arriveExpDet">
+      <Column Name="trkArExDet" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="trkProd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="storeAmount" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="trkUnit" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="weight" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Driver" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Car" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkArExp" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="untOne" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="amtOne" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="untTwo" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="amtTwo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="delArExDt" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_ArvExpDet" Member="V_ArvExpDets">
+    <Type Name="V_ArvExpDet">
+      <Column Name="trkArExp" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="arExpDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="trkExpLoc" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="expName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkArExDet" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkProd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="prodName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="storeAmount" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="trkUnit" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="unitName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="weight" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="untOne" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="oneName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="amtOne" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="untTwo" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="twoName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="amtTwo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="delArExDt" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Driver" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Car" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.sale" Member="sales">
+    <Type Name="sale">
+      <Column Name="trkSale" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="trkArival" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkPeeler" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="saleDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="delSale" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ClntAr" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="saleInf" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_Sale" Member="V_Sales">
+    <Type Name="V_Sale">
+      <Column Name="trkSale" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkArival" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="arivalName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkPeeler" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="peelerName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="saleDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="delSale" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="saleInf" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ClntAr" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_SaleDet" Member="V_SaleDets">
+    <Type Name="V_SaleDet">
+      <Column Name="trkSaleDet" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkSale" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkProd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="prodName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Amount" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="trkUnit" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="unitName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="price" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Weight" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="delSaleDet" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="totalPrs" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="trkArival" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="arivalName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="trkPeeler" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="peelerName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="saleDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="untOne" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="oneName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="amtOne" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="untTwo" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="twoName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="amtTwo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ClntAr" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.goodShp" Member="goodShps">
+    <Type Name="goodShp">
+      <Column Name="trkGood" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="trkExpLok" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="ship" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="goodDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="goodInf" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="delGood" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_goodShp" Member="V_goodShps">
+    <Type Name="V_goodShp">
+      <Column Name="trkGood" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkExpLok" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="ship" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="goodDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="delGood" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="expName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="goodInf" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.goodShpDet" Member="goodShpDets">
+    <Type Name="goodShpDet">
+      <Column Name="trkGoodDet" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="trkProd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="aStock" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="trkUnit" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="weight" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="shipDet" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="trkGood" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="untOne" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="amtOne" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="untTwo" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="amtTwo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="delGoodDet" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_gdShp" Member="V_gdShps">
+    <Type Name="V_gdShp">
+      <Column Name="trkGoodDet" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkProd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="aStock" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="trkGood" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkExpLok" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="goodDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="delGood" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="prodName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkUnit" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="unitName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="weight" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="untOne" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="oneName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="amtOne" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="untTwo" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="twoName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="amtTwo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="expName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="shipDet" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_ToPrd" Member="V_ToPrds">
+    <Type Name="V_ToPrd">
+      <Column Name="trkToPrd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="toPrdDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="trkArival" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkPeeler" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="arivalName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="peelerName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="delToPrd" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="trkCrop" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="cropAmt" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="trashAmt" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="cropUnit" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="toInfo" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="cropName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="unitName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="expName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="isLocal" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="trkClntCrp" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="clntCrpName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="crpUntOne" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="crpAmtOne" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="crpUntTwo" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="crpAmtTwo" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V_OutPrdDet" Member="V_OutPrdDets">
+    <Type Name="V_OutPrdDet">
+      <Column Name="trkPrdDet" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkCrop" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="amount" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="trkOutPrd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkArival" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkAStore" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="oPrdDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="isLocal" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="trkClntCrp" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="cropName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkUnit" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="unitName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="untOne" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="oneName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="amtOne" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="untTwo" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="twoName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="amtTwo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="arivalName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AStore" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="clntName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkPeeler" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="peelerName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="weight" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="clntCrpName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.strType" Member="strTypes">
+    <Type Name="strType">
+      <Column Name="trkStrType" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="typeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[user]" Member="users">
+    <Type Name="user">
+      <Column Name="uTrk" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="uName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="uId" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="uPass" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="uDel" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Function Name="dbo.ExportTotal" Method="ExportTotal">
+    <Parameter Name="exStkDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="exStkDate2" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="trkExpLok" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkExpStore" Type="System.Int32" DbType="Int" />
+    <ElementType Name="ExportTotalResult">
+      <Column Name="prodName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="oneUnt" Type="System.String" DbType="NVarChar(65)" CanBeNull="true" />
+      <Column Name="twoUnt" Type="System.String" DbType="NVarChar(65)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.PrdArv" Method="PrdArv">
+    <Parameter Name="recvDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="trkArival" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkAPrdStr" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkProd" Type="System.Int32" DbType="Int" />
+    <ElementType Name="PrdArvResult">
+      <Column Name="trkProd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="oneUnt" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="oneName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="twoUnt" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="twoName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.PrdPeeler" Method="PrdPeeler">
+    <Parameter Name="recvDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="trkToPrd" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkProd" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkClntCrp" Type="System.Int32" DbType="Int" />
+    <ElementType Name="PrdPeelerResult">
+      <Column Name="trkProd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="oneUnt" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="oneName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="twoUnt" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="twoName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.PrdClntRcvPlr" Method="PrdClntRcvPlr">
+    <Parameter Name="toPrdDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="trkToPrd" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkArival" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkPeeler" Type="System.Int32" DbType="Int" />
+    <ElementType Name="PrdClntRcvPlrResult">
+      <Column Name="trkProd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkUnit" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="oneUnt" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="oneName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="twoUnt" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="twoName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ProceRecvClnt" Method="ProceRecvClnt">
+    <Parameter Name="toPrdDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="trkArival" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkPeeler" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkProd" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkClntCrp" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TOne" Parameter="tOne" Type="System.Double" DbType="Float" />
+    <Parameter Name="TTwo" Parameter="tTwo" Type="System.Double" DbType="Float" />
+    <ElementType Name="ProceRecvClntResult">
+      <Column Name="trkProd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="AOne" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="oneName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ATwo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="twoName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CrpBuy" Method="CrpBuy">
+    <Parameter Name="buyDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="trkCrop" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkBuyLoc" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkBStore" Type="System.Int32" DbType="Int" />
+    <ElementType Name="CrpBuyResult">
+      <Column Name="trkCrop" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="oneUnt" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="oneName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="twoUnt" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="twoName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CrpStation" Method="CrpStation">
+    <Parameter Name="trkArival" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkCrop" Type="System.Int32" DbType="Int" />
+    <Parameter Name="arDate" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="CrpStationResult">
+      <Column Name="trkCrop" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="oneUnt" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="oneName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="twoUnt" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="twoName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ProduceRecv" Method="ProduceRecv">
+    <Parameter Name="recvDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="trkArival" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkPeeler" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkProd" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TOne" Parameter="tOne" Type="System.Double" DbType="Float" />
+    <Parameter Name="TTwo" Parameter="tTwo" Type="System.Double" DbType="Float" />
+    <ElementType Name="ProduceRecvResult">
+      <Column Name="trkProd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="AOne" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="oneName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ATwo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="twoName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ProduceSale" Method="ProduceSale">
+    <Parameter Name="toPrdDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="trkArival" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkPeeler" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkProd" Type="System.Int32" DbType="Int" />
+    <ElementType Name="ProduceSaleResult">
+      <Column Name="trkProd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="oneUnt" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="oneName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="twoUnt" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="twoName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ProduceExp" Method="ProduceExp">
+    <Parameter Name="toPrdDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="trkArival" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkPeeler" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkProd" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TOne" Parameter="tOne" Type="System.Double" DbType="Float" />
+    <Parameter Name="TTwo" Parameter="tTwo" Type="System.Double" DbType="Float" />
+    <ElementType Name="ProduceExpResult">
+      <Column Name="trkProd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="AOne" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="oneName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ATwo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="twoName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.PrdClntPlr" Method="PrdClntPlr">
+    <Parameter Name="toPrdDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="trkToPrd" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkArival" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkPeeler" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkProd" Type="System.Int32" DbType="Int" />
+    <ElementType Name="PrdClntPlrResult">
+      <Column Name="trkProd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="oneUnt" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="oneName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="twoUnt" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="twoName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ProduceRecvClnt" Method="ProduceRecvClnt">
+    <Parameter Name="toPrdDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="trkArival" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkPeeler" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkToPrd" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkProd" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TOne" Parameter="tOne" Type="System.Double" DbType="Float" />
+    <Parameter Name="TTwo" Parameter="tTwo" Type="System.Double" DbType="Float" />
+    <ElementType Name="ProduceRecvClntResult">
+      <Column Name="trkProd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="AOne" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="oneName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ATwo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="twoName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.PrdClntStr" Method="PrdClntStr">
+    <Parameter Name="recvDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="trkToPrd" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkArival" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkAPrdStr" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkProd" Type="System.Int32" DbType="Int" />
+    <ElementType Name="PrdClntStrResult">
+      <Column Name="trkProd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="oneUnt" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="oneName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="twoUnt" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="twoName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.PrdClntRecv" Method="PrdClntRecv">
+    <Parameter Name="recvDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="trkToPrd" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkArival" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkAPrdStr" Type="System.Int32" DbType="Int" />
+    <ElementType Name="PrdClntRecvResult">
+      <Column Name="trkProd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkUnit" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="oneUnt" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="oneName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="twoUnt" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="twoName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.PrdStation" Method="PrdStation">
+    <Parameter Name="trkExpLoc" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkProd" Type="System.Int32" DbType="Int" />
+    <Parameter Name="arExpDate" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="PrdStationResult">
+      <Column Name="trkProd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="oneUnt" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="oneName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="twoUnt" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="twoName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.PrdClntTotal" Method="PrdClntTotal">
+    <Parameter Name="recvDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="trkArival" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkAPrdStr" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkProd" Type="System.Int32" DbType="Int" />
+    <ElementType Name="PrdClntTotalResult">
+      <Column Name="trkProd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="oneUnt" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="oneName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="twoUnt" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="twoName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.PrdGood" Method="PrdGood">
+    <Parameter Name="arExpDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="trkExpLoc" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkProd" Type="System.Int32" DbType="Int" />
+    <ElementType Name="PrdGoodResult">
+      <Column Name="trkProd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="oneUnt" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="oneName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="twoUnt" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="twoName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CrpPeeler" Method="CrpPeeler">
+    <Parameter Name="oPrdDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="trkArival" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkPeeler" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkCrop" Type="System.Int32" DbType="Int" />
+    <Parameter Name="isLocal" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="trkClntCrp" Type="System.Int32" DbType="Int" />
+    <ElementType Name="CrpPeelerResult">
+      <Column Name="trkCrop" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="oneUnt" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="oneName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="twoUnt" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="twoName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.BuyTotal" Method="BuyTotal">
+    <Parameter Name="buyDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="buyDate2" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="trkBuyLoc" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkBStore" Type="System.Int32" DbType="Int" />
+    <ElementType Name="BuyTotalResult">
+      <Column Name="cropName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="oneUnt" Type="System.String" DbType="NVarChar(65)" CanBeNull="true" />
+      <Column Name="twoUnt" Type="System.String" DbType="NVarChar(65)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ArrivalTotal" Method="ArrivalTotal">
+    <Parameter Name="SArDate" Parameter="sArDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="SArDate2" Parameter="sArDate2" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="trkBuyLoc" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkBStore" Type="System.Int32" DbType="Int" />
+    <Parameter Name="isLocal" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="trkClntCrp" Type="System.Int32" DbType="Int" />
+    <ElementType Name="ArrivalTotalResult">
+      <Column Name="cropName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="oneUnt" Type="System.String" DbType="NVarChar(65)" CanBeNull="true" />
+      <Column Name="twoUnt" Type="System.String" DbType="NVarChar(65)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ArvlTotalNoClnt" Method="ArvlTotalNoClnt">
+    <Parameter Name="SArDate" Parameter="sArDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="SArDate2" Parameter="sArDate2" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="trkBuyLoc" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkBStore" Type="System.Int32" DbType="Int" />
+    <ElementType Name="ArvlTotalNoClntResult">
+      <Column Name="cropName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="clntName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="oneUnt" Type="System.String" DbType="NVarChar(65)" CanBeNull="true" />
+      <Column Name="twoUnt" Type="System.String" DbType="NVarChar(65)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.PeelerClntTotal" Method="PeelerClntTotal">
+    <Parameter Name="toPrdDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="toPrdDate2" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="trkArival" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkPeeler" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkClntCrp" Type="System.Int32" DbType="Int" />
+    <ElementType Name="PeelerClntTotalResult">
+      <Column Name="prodName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkProd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="oneUnt" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="oneName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="twoUnt" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="twoName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.RecvTotalClnt" Method="RecvTotalClnt">
+    <Parameter Name="recvDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="recvDate2" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="trkArival" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkPeeler" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkProd" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TOne" Parameter="tOne" Type="System.Double" DbType="Float" />
+    <Parameter Name="TTwo" Parameter="tTwo" Type="System.Double" DbType="Float" />
+    <Parameter Name="trkClntCrp" Type="System.Int32" DbType="Int" />
+    <ElementType Name="RecvTotalClntResult">
+      <Column Name="trkProd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="AOne" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="oneName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ATwo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="twoName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.PeelerTotal" Method="PeelerTotal">
+    <Parameter Name="toPrdDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="toPrdDate2" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="trkArival" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkPeeler" Type="System.Int32" DbType="Int" />
+    <ElementType Name="PeelerTotalResult">
+      <Column Name="prodName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkProd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="oneUnt" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="oneName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="twoUnt" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="twoName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.RecvTotal" Method="RecvTotal">
+    <Parameter Name="recvDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="recvDate2" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="trkArival" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkPeeler" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkProd" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TOne" Parameter="tOne" Type="System.Double" DbType="Float" />
+    <Parameter Name="TTwo" Parameter="tTwo" Type="System.Double" DbType="Float" />
+    <Parameter Name="isLocal" Type="System.Boolean" DbType="Bit" />
+    <ElementType Name="RecvTotalResult">
+      <Column Name="trkProd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="AOne" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="oneName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ATwo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="twoName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ExpTotal" Method="ExpTotal">
+    <Parameter Name="expShipDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="expShipDate2" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="trkArival" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkPeeler" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkProd" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TOne" Parameter="tOne" Type="System.Double" DbType="Float" />
+    <Parameter Name="TTwo" Parameter="tTwo" Type="System.Double" DbType="Float" />
+    <ElementType Name="ExpTotalResult">
+      <Column Name="trkProd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="AOne" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="oneName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ATwo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="twoName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.PlrNoClntTotal" Method="PlrNoClntTotal">
+    <Parameter Name="toPrdDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="toPrdDate2" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="trkArival" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkPeeler" Type="System.Int32" DbType="Int" />
+    <ElementType Name="PlrNoClntTotalResult">
+      <Column Name="prodName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkProd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="clntCrpName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="oneUnt" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="oneName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="twoUnt" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="twoName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ArrivalPrdTotal" Method="ArrivalPrdTotal">
+    <Parameter Name="recvDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="recvDate2" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="trkArival" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkAPrdStr" Type="System.Int32" DbType="Int" />
+    <ElementType Name="ArrivalPrdTotalResult">
+      <Column Name="prodName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="oneUnt" Type="System.String" DbType="NVarChar(65)" CanBeNull="true" />
+      <Column Name="twoUnt" Type="System.String" DbType="NVarChar(65)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ArvlPrdTotalClnt" Method="ArvlPrdTotalClnt">
+    <Parameter Name="trkArival" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkAPrdStr" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkClntCrp" Type="System.Int32" DbType="Int" />
+    <Parameter Name="recvDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="recvDate2" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="ArvlPrdTotalClntResult">
+      <Column Name="prodName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="oneUnt" Type="System.String" DbType="NVarChar(65)" CanBeNull="true" />
+      <Column Name="twoUnt" Type="System.String" DbType="NVarChar(65)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ArvlPrdAllClnt" Method="ArvlPrdAllClnt">
+    <Parameter Name="trkArival" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkAPrdStr" Type="System.Int32" DbType="Int" />
+    <Parameter Name="recvDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="recvDate2" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="ArvlPrdAllClntResult">
+      <Column Name="prodName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="clntCrpName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="oneUnt" Type="System.String" DbType="NVarChar(65)" CanBeNull="true" />
+      <Column Name="twoUnt" Type="System.String" DbType="NVarChar(65)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.FindCrpBuy" Method="FindCrpBuy">
+    <Parameter Name="trkCrop" Type="System.Int32" DbType="Int" />
+    <ElementType Name="FindCrpBuyResult">
+      <Column Name="buyLoc" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="bStore" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="oneUnt" Type="System.String" DbType="NVarChar(65)" CanBeNull="true" />
+      <Column Name="twoUnt" Type="System.String" DbType="NVarChar(65)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CrpArv" Method="CrpArv">
+    <Parameter Name="SArDate" Parameter="sArDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="trkArival" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkAStore" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkCrop" Type="System.Int32" DbType="Int" />
+    <Parameter Name="isLocal" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="trkClntCrp" Type="System.Int32" DbType="Int" />
+    <ElementType Name="CrpArvResult">
+      <Column Name="trkCrop" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="oneUnt" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="oneName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="twoUnt" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="twoName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.FindCrpArv" Method="FindCrpArv">
+    <Parameter Name="trkCrop" Type="System.Int32" DbType="Int" />
+    <ElementType Name="FindCrpArvResult">
+      <Column Name="arivalName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AStore" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="oneUnt" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="twoUnt" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.FindCrpClnt" Method="FindCrpClnt">
+    <Parameter Name="trkCrop" Type="System.Int32" DbType="Int" />
+    <ElementType Name="FindCrpClntResult">
+      <Column Name="arivalName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AStore" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="clntCrpName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="oneUnt" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="twoUnt" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.PlrFindCrp" Method="PlrFindCrp">
+    <Parameter Name="trkCrop" Type="System.Int32" DbType="Int" />
+    <ElementType Name="PlrFindCrpResult">
+      <Column Name="arivalName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="peelerName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="oneUnt" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="twoUnt" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.PlrFindCrpClnt" Method="PlrFindCrpClnt">
+    <Parameter Name="trkCrop" Type="System.Int32" DbType="Int" />
+    <ElementType Name="PlrFindCrpClntResult">
+      <Column Name="arivalName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="peelerName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="clntCrpName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="oneUnt" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="twoUnt" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.FindPrdArv" Method="FindPrdArv">
+    <Parameter Name="trkProd" Type="System.Int32" DbType="Int" />
+    <ElementType Name="FindPrdArvResult">
+      <Column Name="arivalName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="APrdStr" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="oneUnt" Type="System.String" DbType="NVarChar(65)" CanBeNull="true" />
+      <Column Name="twoUnt" Type="System.String" DbType="NVarChar(65)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.FindPrdArvClnt" Method="FindPrdArvClnt">
+    <Parameter Name="trkProd" Type="System.Int32" DbType="Int" />
+    <ElementType Name="FindPrdArvClntResult">
+      <Column Name="arivalName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="APrdStr" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="clntCrpName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="oneUnt" Type="System.String" DbType="NVarChar(65)" CanBeNull="true" />
+      <Column Name="twoUnt" Type="System.String" DbType="NVarChar(65)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.PeelerCrpTotal" Method="PeelerCrpTotal">
+    <Parameter Name="toPrdDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="toPrdDate2" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="trkArival" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkPeeler" Type="System.Int32" DbType="Int" />
+    <Parameter Name="isLocal" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="trkClntCrp" Type="System.Int32" DbType="Int" />
+    <ElementType Name="PeelerCrpTotalResult">
+      <Column Name="cropName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="oneUnt" Type="System.String" DbType="NVarChar(65)" CanBeNull="true" />
+      <Column Name="twoUnt" Type="System.String" DbType="NVarChar(65)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.PeelerCrpNoClnt" Method="PeelerCrpNoClnt">
+    <Parameter Name="toPrdDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="toPrdDate2" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="trkArival" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkPeeler" Type="System.Int32" DbType="Int" />
+    <ElementType Name="PeelerCrpNoClntResult">
+      <Column Name="cropName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="clntCrpName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="oneUnt" Type="System.String" DbType="NVarChar(65)" CanBeNull="true" />
+      <Column Name="twoUnt" Type="System.String" DbType="NVarChar(65)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.FindRecv" Method="FindRecv">
+    <Parameter Name="trkArival" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkPeeler" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkProd" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TOne" Parameter="tOne" Type="System.Double" DbType="Float" />
+    <Parameter Name="TTwo" Parameter="tTwo" Type="System.Double" DbType="Float" />
+    <Parameter Name="isLocal" Type="System.Boolean" DbType="Bit" />
+    <ElementType Name="FindRecvResult">
+      <Column Name="trkProd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="AOne" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="oneName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ATwo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="twoName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.FindExp" Method="FindExp">
+    <Parameter Name="trkArival" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkPeeler" Type="System.Int32" DbType="Int" />
+    <Parameter Name="trkProd" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TOne" Parameter="tOne" Type="System.Double" DbType="Float" />
+    <Parameter Name="TTwo" Parameter="tTwo" Type="System.Double" DbType="Float" />
+    <ElementType Name="FindExpResult">
+      <Column Name="trkProd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="AOne" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="oneName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ATwo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="twoName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.FindPrdPlr" Method="FindPrdPlr">
+    <Parameter Name="trkProd" Type="System.Int32" DbType="Int" />
+    <ElementType Name="FindPrdPlrResult">
+      <Column Name="arivalName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="peelerName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="oneUnt" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="oneName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="twoUnt" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="twoName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="trkArival" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkPeeler" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.FindPrdPlrClnt" Method="FindPrdPlrClnt">
+    <Parameter Name="trkProd" Type="System.Int32" DbType="Int" />
+    <ElementType Name="FindPrdPlrClntResult">
+      <Column Name="prodName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkProd" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="clntCrpName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="arivalName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="peelerName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="trkArival" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="trkPeeler" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="oneUnt" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="oneName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="twoUnt" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="twoName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>
